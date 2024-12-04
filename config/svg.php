@@ -2,7 +2,7 @@
 return [
     'endpoint' => '/svg/{name}',
     'route_name' => 'svg',
-    'view' => 'svg::svg',
+    'view' => 'laravel_svg.svg',
     'view_namespace' => 'svg',
     'component_prefix' => 'svg',
     'max_age' => 2592000,
