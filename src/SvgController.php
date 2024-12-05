@@ -1,6 +1,6 @@
 <?php
 
-namespace Zerotoprod\LaravelSvg\Http\Controllers;
+namespace Zerotoprod\LaravelSvg;
 
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Foundation\Application;
@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\View;
 class SvgController
 {
     public const classname = 'classname';
+    public const fill = 'fill';
 
     /**
      * @see  Web::$svg
@@ -29,19 +30,16 @@ class SvgController
             );
         }
 
-        $max_age = config('svg.max_age');
-
         return response(
             content: view(
                 view: $view,
-                data: [self::classname => $Request->query(self::classname)]
+                data: [
+                    self::classname => $Request->query(self::classname),
+                    self::fill => $Request->query(self::fill),
+                ]
             )->render(),
             status: 200,
-            headers: [
-                'Content-Type' => 'image/svg+xml',
-                'Cache-Control' => "max-age=$max_age, public",
-                'Expires' => gmdate('D, d M Y H:i:s', time() + $max_age).' GMT'
-            ]
+            headers: ['Content-Type' => 'image/svg+xml']
         );
     }
 }

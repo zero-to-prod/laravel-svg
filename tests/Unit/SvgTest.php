@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use Illuminate\Support\Facades\Blade;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
+use Zerotoprod\LaravelSvg\SvgController;
 
 class SvgTest extends TestCase
 {
@@ -13,10 +14,9 @@ class SvgTest extends TestCase
     {
         $files = glob(__DIR__.'/../../resources/views/svg/*.blade.php');
 
-        $this->get(route(config('svg.route_name'), ['name' =>  basename($files[0], '.blade.php')]))
+        $this->get(route(config('svg.route_name'), ['name' => basename($files[0], '.blade.php')]))
             ->assertOk()
-            ->assertHeader('Content-Type', 'image/svg+xml')
-            ->assertHeader('Cache-Control', 'max-age=86400, public');
+            ->assertHeader('Content-Type', 'image/svg+xml');
     }
 
     /** @link SvgController */
@@ -32,7 +32,7 @@ class SvgTest extends TestCase
     {
         self::assertEquals(
             expected: '<img class="h-4 w-4 opacity-70" src="http://localhost/svg/home" alt="home">',
-            actual: Blade::render('<x-svg name="home" classname="h-4 w-4 opacity-70" />')
+            actual: Blade::render('<x-svg name="home" classname="h-4 w-4 opacity-70" fill="red" />')
         );
     }
 
