@@ -32,7 +32,7 @@ class Svg extends Component
             data: [
                 self::name => $this->name,
                 self::classname => $this->classname ?? null,
-                self::fill => $this->fill,
+                self::fill => $this->fill ?? 'currentColor',
                 self::text => $this->alt ?? $this->name,
             ]
         );
