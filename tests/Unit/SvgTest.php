@@ -13,7 +13,7 @@ class SvgTest extends TestCase
     {
         $files = glob(__DIR__.'/../../resources/views/svg/*.blade.php');
 
-        $this->get(route(config('svg.route_name'), ['name' =>  basename($files[0], '.blade.php')]))
+        $this->get(route(config('svg.route_name'), ['name' => basename($files[0], '.blade.php')]))
             ->assertOk()
             ->assertHeader('Content-Type', 'image/svg+xml')
             ->assertHeader('Cache-Control', 'max-age=86400, public');
@@ -43,5 +43,49 @@ class SvgTest extends TestCase
             expected: '<img class="h-4 w-4 opacity-70" src="http://localhost/svg/home" alt="alt">',
             actual: Blade::render('<x-svg name="home" classname="h-4 w-4 opacity-70" alt="alt" />')
         );
+    }
+
+    /** @link SvgController */
+    #[Test] public function e_tag_matches(): void
+    {
+        $files = glob(__DIR__.'/../../resources/views/svg/*.blade.php');
+        $name = basename($files[0], '.blade.php');
+
+        $response = $this->get(route(config('svg.route_name'), ['name' => $name]));
+        $etag = $response->headers->get('ETag');
+
+        $this->get(route(config('svg.route_name'), ['name' => $name]), ['If-None-Match' => $etag])
+            ->assertStatus(304)
+            ->assertHeader('ETag', $etag);
+    }
+
+    /** @link SvgController */
+    #[Test] public function no_etag_sent(): void
+    {
+        $files = glob(__DIR__.'/../../resources/views/svg/*.blade.php');
+        $name = basename($files[0], '.blade.php');
+
+        $response = $this->get(route(config('svg.route_name'), ['name' => $name]));
+        $etag = $response->headers->get('ETag');
+
+        $this->get(route(config('svg.route_name'), ['name' => $name]))
+            ->assertOk()
+            ->assertHeader('ETag', $etag);
+    }
+
+    /** @link SvgController */
+    #[Test] public function svg_not_found_etag(): void
+    {
+        $this->get(route(config('svg.route_name'), ['name' => 'nonexistent']), ['If-None-Match' => 'random-etag'])
+            ->assertNotFound()
+            ->assertHeaderMissing('ETag');
+    }
+
+    /** @link SvgController */
+    #[Test] public function invalid_name(): void
+    {
+        $this->get(route(config('svg.route_name'), ['name' => 'invalid/<name>']))
+            ->assertNotFound()
+            ->assertHeader('Content-Type', 'text/html; charset=UTF-8');
     }
 }
