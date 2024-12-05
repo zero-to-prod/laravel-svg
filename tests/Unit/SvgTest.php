@@ -16,7 +16,7 @@ class SvgTest extends TestCase
         $this->get(route(config('svg.route_name'), ['name' => basename($files[0], '.blade.php')]))
             ->assertOk()
             ->assertHeader('Content-Type', 'image/svg+xml')
-            ->assertHeader('Cache-Control', 'no-cache, private');
+            ->assertHeader('Cache-Control', 'max-age=86400, public');
     }
 
     /** @link SvgController */
