@@ -31,7 +31,7 @@ class SvgTest extends TestCase
     #[Test] public function renders_component(): void
     {
         self::assertEquals(
-            expected: '<img class="h-4 w-4 opacity-70" src="http://localhost/svg/home" alt="home">',
+            expected: '<img class="h-4 w-4 opacity-70" src="http://localhost/svg/home?fill=red" alt="home">',
             actual: Blade::render('<x-svg name="home" classname="h-4 w-4 opacity-70" fill="red" />')
         );
     }
