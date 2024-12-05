@@ -46,6 +46,8 @@ class SvgController
             status: 200,
             headers: [
                 'Content-Type' => 'image/svg+xml',
+                'Cache-Control' => "max-age=$max_age, public",
+                'Expires' => gmdate('D, d M Y H:i:s', time() + $max_age).' GMT',
                 'ETag' => $ETag,
             ]
         );
