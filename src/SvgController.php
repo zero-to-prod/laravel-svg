@@ -13,11 +13,6 @@ class SvgController
     public const classname = 'classname';
     public const fill = 'fill';
 
-    /**
-     * @see  Web::$svg
-     * @see  Web::svg()
-     * @link SvgTest
-     */
     public function __invoke(string $name, Request $Request): Application|Response|ResponseFactory
     {
         $view = config('svg.svg_path').'.'.$name;
@@ -34,8 +29,9 @@ class SvgController
             content: view(
                 view: $view,
                 data: [
-                    self::classname => $Request->query(self::classname),
-                    self::fill => $Request->query(self::fill),
+                    Svg::name => $name,
+                    Svg::classname => null,
+                    Svg::fill => $Request->query(self::fill),
                 ]
             )->render(),
             status: 200,

@@ -3,11 +3,20 @@
 namespace Zerotoprod\LaravelSvg;
 
 use Closure;
-use Illuminate\Support\Facades\View;
+use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
 use Illuminate\View\Component;
 
 class Svg extends Component
 {
+    public const name = 'name';
+    public const classname = 'classname';
+    public const fill = 'fill';
+    public const alt = 'alt';
+    public const text = 'text';
+
     public function __construct(
         public readonly string $name,
         public readonly ?string $classname = null,
@@ -16,15 +25,15 @@ class Svg extends Component
     ) {
     }
 
-    public function render(): View|Closure|string
+    public function render(): View|Application|Factory|Htmlable|Closure|string|\Illuminate\Contracts\Foundation\Application|null
     {
         return view(
             view: config('svg.view'),
             data: [
-                'name' => $this->name,
-                'classname' => $this->classname,
-                'fill' => $this->fill,
-                'text' => $this->alt ?? $this->name,
+                self::name => $this->name,
+                self::classname => $this->classname ?? null,
+                self::fill => $this->fill,
+                self::text => $this->alt ?? $this->name,
             ]
         );
     }
