@@ -12,6 +12,11 @@ class SvgController
 {
     public const classname = 'classname';
 
+    /**
+     * @see  Web::$svg
+     * @see  Web::svg()
+     * @link SvgTest
+     */
     public function __invoke(string $name, Request $Request): Application|Response|ResponseFactory
     {
         $view = config('svg.svg_path').'.'.$name;
@@ -26,29 +31,16 @@ class SvgController
 
         $max_age = config('svg.max_age');
 
-        $content = view(
-            view: $view,
-            data: [self::classname => $Request->query(self::classname)]
-        )->render();
-
-        $ETag = md5($content);
-
-        if ($Request->header('If-None-Match') === $ETag) {
-            return response(
-                content: '',
-                status: 304,
-                headers: ['ETag' => $ETag]
-            );
-        }
-
         return response(
-            content: $content,
+            content: view(
+                view: $view,
+                data: [self::classname => $Request->query(self::classname)]
+            )->render(),
             status: 200,
             headers: [
                 'Content-Type' => 'image/svg+xml',
                 'Cache-Control' => "max-age=$max_age, public",
-                'Expires' => gmdate('D, d M Y H:i:s', time() + $max_age).' GMT',
-                'ETag' => $ETag,
+                'Expires' => gmdate('D, d M Y H:i:s', time() + $max_age).' GMT'
             ]
         );
     }
