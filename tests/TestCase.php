@@ -14,6 +14,7 @@ abstract class TestCase extends OrchestraTestCase
     {
         tap($app['config'], static function (Repository $config) {
             $config->set('svg.view', 'svg::svg');
+            $config->set('svg.svg_path', 'svg::svg');
         });
     }
 }

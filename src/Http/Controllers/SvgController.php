@@ -19,7 +19,7 @@ class SvgController
      */
     public function __invoke(string $name, Request $Request): Application|Response|ResponseFactory
     {
-        $view = config('svg.view').'.'.$name;
+        $view = config('svg.svg_path').'.'.$name;
 
         if (!View::exists($view)) {
             return response(
