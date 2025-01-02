@@ -1,4 +1,4 @@
-# Zerotoprod\DataModel
+# Zerotoprod\LaravelSvg
 
 ![](./logo.png)
 
@@ -8,6 +8,7 @@
 [![php](https://img.shields.io/packagist/php-v/zero-to-prod/laravel-svg.svg?color=purple)](https://packagist.org/packages/zero-to-prod/laravel-svg/stats)
 [![Packagist Version](https://img.shields.io/packagist/v/zero-to-prod/laravel-svg?color=f28d1a)](https://packagist.org/packages/zero-to-prod/laravel-svg)
 [![License](https://img.shields.io/packagist/l/zero-to-prod/laravel-svg?color=pink)](https://github.com/zero-to-prod/laravel-svg/blob/main/LICENSE.md)
+[![Hits-of-Code](https://hitsofcode.com/github/zero-to-prod//laravel-svg?branch=main)](https://hitsofcode.com/github/zero-to-prod//laravel-svg/view?branch=main)
 
 Serve your svg files from an endpoint.
 
