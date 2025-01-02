@@ -30,7 +30,7 @@ class SvgController
                 view: $view,
                 data: [
                     Svg::name => $name,
-                    Svg::classname => null,
+                    Svg::classname => '',
                     Svg::fill => $Request->query(self::fill),
                 ]
             )->render(),
