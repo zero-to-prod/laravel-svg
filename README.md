@@ -9,7 +9,7 @@
 [![Packagist Version](https://img.shields.io/packagist/v/zero-to-prod/laravel-svg?color=f28d1a)](https://packagist.org/packages/zero-to-prod/laravel-svg)
 [![License](https://img.shields.io/packagist/l/zero-to-prod/laravel-svg?color=pink)](https://github.com/zero-to-prod/laravel-svg/blob/main/LICENSE.md)
 [![wakatime](https://wakatime.com/badge/github/zero-to-prod/laravel-svg.svg)](https://wakatime.com/badge/github/zero-to-prod/laravel-svg)
-[![Hits-of-Code](https://hitsofcode.com/github/zero-to-prod//laravel-svg?branch=main)](https://hitsofcode.com/github/zero-to-prod//laravel-svg/view?branch=main)
+[![Hits-of-Code](https://hitsofcode.com/github/zero-to-prod/laravel-svg?branch=main&label=Hits-of-Code)](https://hitsofcode.com/github/zero-to-prod/laravel-svg/view?branch=main&label=Hits-of-Code)
 
 Serve your svg files from an endpoint.
 
