@@ -7,11 +7,14 @@
         "laravel-svg"
     ],
     "homepage": "https://github.com/zero-to-prod/laravel-svg",
-    "license": "MIT",
     "support": {
+        "email": "dave0016@gmail.com",
         "issues": "https://github.com/zero-to-prod/laravel-svg/issues",
-        "source": "https://github.com/zero-to-prod/laravel-svg"
+        "source": "https://github.com/zero-to-prod/data-model",
+        "docs": "https://zero-to-prod.github.io/laravel-svg/",
+        "security": "https://github.com/zero-to-prod/laravel-svg/blob/main/SECURITY.md"
     },
+    "license": "MIT",
     "authors": [
         {
             "name": "David Smith",
