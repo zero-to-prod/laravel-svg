@@ -4,3 +4,7 @@ composer.lock
 .phpunit.result.cache
 .php-cs-fixer.cache
 /.phpunit.cache/
+/vendor-php81/
+/vendor-php82/
+/vendor-php83/
+/vendor-php84/
