@@ -10,7 +10,7 @@
     "support": {
         "email": "dave0016@gmail.com",
         "issues": "https://github.com/zero-to-prod/laravel-svg/issues",
-        "source": "https://github.com/zero-to-prod/data-model",
+        "source": "https://github.com/zero-to-prod/laravel-svg",
         "docs": "https://zero-to-prod.github.io/laravel-svg/",
         "security": "https://github.com/zero-to-prod/laravel-svg/blob/main/SECURITY.md"
     },
