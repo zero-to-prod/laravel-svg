@@ -12,3 +12,6 @@
 /SECURITY.md              export-ignore
 /logo.png                 export-ignore
 /test.sh                  export-ignore
+/art/                     export-ignore
+/dock                     export-ignore
+/testbench.yaml           export-ignore
