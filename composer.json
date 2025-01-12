@@ -44,29 +44,6 @@
             ]
         }
     },
-    "scripts": {
-        "post-autoload-dump": [
-            "@clear",
-            "@prepare",
-            "@composer run prepare"
-        ],
-        "prepare": "@php vendor/bin/testbench package:discover --ansi",
-        "build": "@php vendor/bin/testbench workbench:build --ansi",
-        "start": [
-            "@composer run prepare",
-            "@php ./vendor/bin/testbench serve"
-        ],
-        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
-        "serve": [
-            "Composer\\Config::disableProcessTimeout",
-            "@build",
-            "@php vendor/bin/testbench serve --ansi"
-        ],
-        "test": [
-            "@clear",
-            "@php vendor/bin/phpunit"
-        ]
-    },
     "require-dev": {
         "phpunit/phpunit": "^10.0",
         "orchestra/testbench": "^8.6.0|^9.0"
