@@ -4,6 +4,7 @@
 
 [![Repo](https://img.shields.io/badge/github-gray?logo=github)](https://github.com/zero-to-prod/laravel-svg)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/zero-to-prod/laravel-svg/test.yml?label=test)](https://github.com/zero-to-prod/laravel-svg/actions)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/zero-to-prod/laravel-svg/backwards_compatibility.yml?label=backwards_compatibility)](https://github.com/zero-to-prod/laravel-svg/actions)
 [![Packagist Downloads](https://img.shields.io/packagist/dt/zero-to-prod/laravel-svg?color=blue)](https://packagist.org/packages/zero-to-prod/laravel-svg/stats)
 [![php](https://img.shields.io/packagist/php-v/zero-to-prod/laravel-svg.svg?color=purple)](https://packagist.org/packages/zero-to-prod/laravel-svg/stats)
 [![Packagist Version](https://img.shields.io/packagist/v/zero-to-prod/laravel-svg?color=f28d1a)](https://packagist.org/packages/zero-to-prod/laravel-svg)
