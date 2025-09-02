@@ -5,13 +5,22 @@ namespace Zerotoprod\LaravelSvg;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * @link https://github.com/zero-to-prod/laravel-svg
+ */
 class SvgServiceProvider extends ServiceProvider
 {
+    /**
+     * @link https://github.com/zero-to-prod/laravel-svg
+     */
     public function register(): void
     {
         $this->mergeConfigFrom(__DIR__.'/../config/svg.php', 'svg');
     }
 
+    /**
+     * @link https://github.com/zero-to-prod/laravel-svg
+     */
     public function boot(): void
     {
         $this->publishes([

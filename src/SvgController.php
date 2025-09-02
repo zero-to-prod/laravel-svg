@@ -8,11 +8,23 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\View;
 
+/**
+ * @link https://github.com/zero-to-prod/laravel-svg
+ */
 class SvgController
 {
+    /**
+     * @link https://github.com/zero-to-prod/laravel-svg
+     */
     public const classname = 'classname';
+    /**
+     * @link https://github.com/zero-to-prod/laravel-svg
+     */
     public const fill = 'fill';
 
+    /**
+     * @link https://github.com/zero-to-prod/laravel-svg
+     */
     public function __invoke(string $name, Request $Request): Application|Response|ResponseFactory
     {
         $view = config('svg.svg_path').'.'.$name;
